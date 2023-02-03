@@ -53,7 +53,7 @@ void MakeNoise::playTrack(const int& time, const int& samplesPerSec, int loop)
 	for (DWORD t = 0; t < size; t++)
 		buffer[t] = static_cast<char>(algorithm(t));
 	// header
-	WAVEHDR header = { buffer, size, NULL, NULL, WHDR_BEGINLOOP | WHDR_ENDLOOP, loop, NULL, NULL };
+	WAVEHDR header = { buffer, (DWORD)size, NULL, NULL, WHDR_BEGINLOOP | WHDR_ENDLOOP, (DWORD)loop, NULL, NULL };
 	/*
 	MMRESULT waveOutPrepareHeader/waveOutWrite/waveOutUnprepareHeader(
 		HWAVEOUT  hwo,	// Handle to the waveform-audio output device
